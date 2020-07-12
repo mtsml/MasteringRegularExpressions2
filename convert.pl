@@ -1,9 +1,9 @@
 sub convert {
     $myInput = $_[0];
-    if ($myInput =~ m/^([-+]?[0-9]+)([CF])$/) {
+    if ($myInput =~ m/^([-+]?[0-9]+(\.[0-9]*)?)\s*([CF])$/i) {
         $InputNum = $1;
-        $type = $2;
-        if ($type eq "C") {
+        $type = $3;
+        if ($type =~ m/c/i) {
             $celsius = $InputNum;
             $fahrenheit = ($celsius * 9 / 5) + 32;
         } else {
